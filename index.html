@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Vanguard Plans - Vansh</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #eee;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #222;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #FFD700;
+    }
+    section {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+      background: #1a1a1a;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+    h2 {
+      color: #FFD700;
+    }
+    .task {
+      text-align: left;
+      margin: 10px 0;
+    }
+    .checkbox {
+      margin-right: 10px;
+    }
+    footer {
+      margin-top: 30px;
+      padding: 10px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>⚔️ The Vanguard – Daily Plans by Vansh ⚔️</header>
+
+  <section id="plan">
+    <h2 id="day-title">Loading Today’s Plan...</h2>
+    <div id="tasks"></div>
+  </section>
+
+  <footer>
+    Made with discipline ⚔️ by Vansh
+  </footer>
+
+  <script>
+    // Starting date = 7 September 2025
+    const startDate = new Date("2025-09-07");
+    const today = new Date();
+    const dayNumber = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
+
+    const plans = {
+      1: {
+        title: "Day 1 – Kickoff",
+        tasks: [
+          "📱 Upload today’s Screen Time screenshot.",
+          "💪 Do 20 min workout & upload photo/stopwatch proof.",
+          "💰 Learn about SIP: Search what is Mutual Fund SIP. Share screenshot of your research.",
+          "🧠 Write your WHY – Why you want to be successful.",
+          "🗣 Speak 3 sentences in English + Hindi about your goal (record if possible)."
+        ]
+      },
+      2: {
+        title: "Day 2 – Consistency",
+        tasks: [
+          "📱 Compare today’s Screen Time with yesterday.",
+          "💪 15 min workout (pushups, squats, plank). Upload proof.",
+          "💰 Start ₹100 SIP in Gold (PhonePe/GPay). If not possible, note which scheme you’ll choose.",
+          "🧠 Write which distraction you’ll avoid today.",
+          "🗣 Practice English: Introduce yourself in 4-5 lines (English + Hindi)."
+        ]
+      },
+      3: {
+        title: "Day 3 – Focus",
+        tasks: [
+          "📱 Screen Time screenshot again (target less).",
+          "💪 Try 2 sets of workout (Pushups 2x10, Squats 2x15, Plank 2x30 sec).",
+          "💰 Read about ‘Power of Compounding’ in investing.",
+          "🧠 Write 1 fear that holds you back, and how you’ll fight it.",
+          "🗣 Speak 5 English lines about your future vision."
+        ]
+      }
+    };
+
+    const plan = plans[dayNumber] || {
+      title: "Day " + dayNumber,
+      tasks: ["🚀 Plan not added yet. Stay tuned."]
+    };
+
+    document.getElementById("day-title").innerText = plan.title;
+    const taskContainer = document.getElementById("tasks");
+
+    plan.tasks.forEach(task => {
+      const div = document.createElement("div");
+      div.classList.add("task");
+      div.innerHTML = `<input type="checkbox" class="checkbox"> ${task}`;
+      taskContainer.appendChild(div);
+    });
+  </script>
+</body>
+</html>
